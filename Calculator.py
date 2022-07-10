@@ -1,13 +1,15 @@
 from tkinter import *
 
+# Functions
 
+# This allows buttons pressed to display.
 def button_press(num):
     global equation_text
     equation_text = equation_text + str(num)
 
     equation_label.set(equation_text)
 
-
+# This function displays the answer after any arithmetic.
 def equals():
     global equation_text
     try:
@@ -19,14 +21,16 @@ def equals():
     except SyntaxError:
         equation_label.set('syntax error')
 
-
+        
+# This function removes everything that has been displayed completely.
 def clear():
     global equation_text
     equation_text = ""
     equation_label.set(equation_text)
 
 
-window = Tk()
+window = Tk()  # Initializing tkinter window
+
 window.title('Calculator Program')
 window.geometry("450x500")
 
@@ -39,6 +43,7 @@ label.pack()
 frame = Frame(window)
 frame.pack()
 
+# Creating all buttons.
 button1 = Button(frame, text=1, height=4, width=9, font=35, command=lambda: button_press(1))
 button1.grid(row=0, column=0)
 
